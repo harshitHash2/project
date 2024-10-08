@@ -2,6 +2,7 @@ const express = require("express");
 const router = express.Router();
 const { body, validationResult } = require("express-validator");
 const User = require("../models/User");
+const Search = require("../models/Search");
 const bcrypt = require("bcryptjs");
 var fetchuser = require("../middleware/fetchuser");
 
@@ -36,6 +37,13 @@ router.post(
         email: req.body.email,
         imageurl: req.body.imageurl
       });
+
+      const search = await Search.create({
+        username: req.body.username,
+        imageurl: req.body.imageurl
+      });
+      console.log("email");
+      console.log(search.id);
       // fetching id of the created user for token generation
       const data = {
         user: {
