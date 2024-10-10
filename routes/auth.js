@@ -42,8 +42,7 @@ router.post(
         username: req.body.username,
         imageurl: req.body.imageurl
       });
-      console.log("email");
-      console.log(search.id);
+      
       // fetching id of the created user for token generation
       const data = {
         user: {

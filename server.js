@@ -1,7 +1,9 @@
 const connectToMongo = require('./applicationDbContext');
+const connectToMongoClient = require('./applicationDbClient');
 const express = require('express');
 var cors = require('cors');
 connectToMongo();
+// connectToMongoClient();
 
 
 
@@ -17,6 +19,7 @@ app.use(express.json());
 
 // Available routes
 app.use('/auth', require('./routes/auth'));
+app.use('/profile', require('./routes/profile'));
 // app.use('/user', require('./routes/notes'));
 
 app.get('/', (req, res) => {
